@@ -1,0 +1,94 @@
+leetcode學習筆記(python)
+
+1. math.pow(x,y)
+= x**y
+
+2. (商,餘) = divmod(x,y) -> x/y
+
+3. math.copysign(1,x) == 1 (正)
+== -1 (負)
+
+4. x[::-1]
+從後面往前回來
+ex: abc
+x[::-1] = cba
+
+5.min(s) s is a string
+#string will be retrieved min max by alphebetic order
+
+For example, "flood", "flower", "flowers". The max is "flowers", and the min is "flood", we can only compare them to get common prefix "flo".
+Another example, "flood", "flower", "flowers", "food", the max is "food", and the min is "flood". we can only compare them to get common prefix "f"
+
+6.enumerate()
+seasons = ['Spring', 'Summer', 'Fall', 'Winter']
+list(enumerate(seasons))
+[(0, 'Spring'), (1, 'Summer'), (2, 'Fall'), (3, 'Winter')]
+
+7.stack觀念 後進先出
+in python is list append and pop  (先進先出的話就是popleft)
+
+相關list操作
+del刪除list特定位置
+remove刪除特定直(有重複的話只會刪除一個)
+
+8.
+return a or b  會挑大的回傳
+
+9. leetcode 21,83
+linked list要熟悉
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+10.string中找部分string find
+result = full.find(parts)
+
+11. kadanes-algorithm
+
+    def maxSubArray(self, nums: List[int]) -> int:
+        if not nums:
+            return 0
+
+        curSum = maxSum = nums[0]
+        for num in nums[1:]:
+            curSum = max(num, curSum + num)
+            maxSum = max(maxSum, curSum)
+
+        return maxSum
+
+
+12.演算法解法要找規律
+一階兩階爬樓梯規律為新的結果為前兩個結果的和
+
+
+
+13.判斷n是否為2的幾次方
+n > 0 && ((n & (n - 1)) == 0 )
+n 要是2的幾次方的話必須為 10000
+n-1的話就會是01111
+&之後是0 才會讓n是2的幾次方
+
+如果n!=2的幾次方 ex:1100100
+n-1 => 110011
+n & n-1 !=0
+https://blog.csdn.net/navyifanr/article/details/19496459
+
+
+14. ^ 運算符號
+a = 1
+b = 2 
+a->0001
+b->0010
+a^b = 3 ->0011
+
+a = 2
+b = 2
+a ^ b = 0
+->0010 ^ 0010 -> 0000
+用這個方式取得list中唯一數字
+
+15. dict.get()
+dic[num] = dic.get(num, 0)
+返回指定键的值，如果键不在字典中返回默认值 None 或者设置的默认值。
+假如num不在dict則返回0
